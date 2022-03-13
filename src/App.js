@@ -1,6 +1,7 @@
 import "./styles.css";
+import React, { useState } from "react";
 import Employee from "./Employee";
-
+import Counter from "./Counter";
 const employeeData = [
   {
     name: "fang",
@@ -9,6 +10,8 @@ const employeeData = [
 ];
 
 export default function App() {
+  const [count, setCount] = useState(0);
+
   const baseEmployeeObj = {
     role: "employee",
     company: "CodeSandBox",
@@ -19,9 +22,13 @@ export default function App() {
   console.log(firstEmp);
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
+      <h1>Sum of total: ${count}</h1>
       {firstEmp.id === "abc" ? (
-        <Employee {...firstEmp} />
+        <>
+          <Employee {...firstEmp} />
+          <Counter name="Fang" count={count} setCount={setCount} />
+          <Counter name="Wang" count={count} setCount={setCount} />
+        </>
       ) : (
         <h2>data is not found </h2>
       )}

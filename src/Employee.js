@@ -5,7 +5,7 @@ const Employee = (props) => {
   const { name, id } = props;
   return (
     <div>
-      <h3>{`Name: ${name}; ID ${id}`}</h3>
+      <h3>{` Welcome ${name.toUpperCase()} (${id})`}</h3>
     </div>
   );
 };
